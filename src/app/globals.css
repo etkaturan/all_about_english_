@@ -1,26 +1,60 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ivory: #f4f1ea;
+  --navy: #1a1f2e;
+  --royal: #2a4a9c;
+  --royal-bright: #4a7bf7;
+  --muted: #5a6072;
+  --faint: #8a8678;
+  --card: rgba(255, 255, 255, 0.8);
+  --border: rgba(26, 31, 46, 0.1);
+
+  --background: var(--ivory);
+  --foreground: var(--navy);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ivory: var(--ivory);
+  --color-navy: var(--navy);
+  --color-royal: var(--royal);
+  --color-royal-bright: var(--royal-bright);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --font-serif: var(--font-fraunces);
+  --font-sans: var(--font-work-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html.dark {
+  --ivory: #0b1020;
+  --navy: #f4f1ea;
+  --royal: #6f9bff;
+  --muted: #c4cbde;
+  --faint: #9aa3bd;
+  --card: rgba(255, 255, 255, 0.07);
+  --border: rgba(255, 255, 255, 0.14);
+
+  --background: #0b1020;
+  --foreground: #f4f1ea;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none;
+  }
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
