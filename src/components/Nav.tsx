@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import ContactButton from "@/components/ContactButton";
+
 
 export default function Nav() {
   const [dark, setDark] = useState(false);
@@ -42,9 +44,10 @@ export default function Nav() {
               {dark ? "☾" : "☀"}
             </span>
           </button>
-          <button className="rounded-full bg-royal px-4 py-2 font-sans text-[13px] font-medium text-white">
-            Book now
-          </button>
+            <ContactButton
+            message="Hi Karyna! I'd like to book an English lesson."
+            label="Book now"
+            />
         </div>
       </nav>
     </div>

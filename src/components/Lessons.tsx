@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import ContactButton from "@/components/ContactButton";
 
 const AGE = { kids: 1, teens: 1.15, adults: 1.3 } as const;
 const LEN = { "30": 1, "60": 1.8, "90": 2.5 } as const;
@@ -48,7 +49,7 @@ export default function Lessons() {
         ))}
       </div>
 
-      <div className="mx-auto grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
+<div className="mx-auto grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
         {TIERS.map((t) => (
           <div
             key={t.key}
@@ -67,6 +68,13 @@ export default function Lessons() {
             </div>
             <div className="font-serif text-3xl">{price(t.base)}</div>
             <div className="mt-2 font-sans text-[13px] text-muted">{t.sub}</div>
+            <div className="mt-4">
+              <ContactButton
+                message={`Hi Karyna! I'm interested in the "${t.label}" lessons option (${age}, ${len} min). Could you tell me more?`}
+                label="Enquire"
+                variant="ghost"
+              />
+            </div>
           </div>
         ))}
       </div>

@@ -1,3 +1,5 @@
+import ContactButton from "@/components/ContactButton";
+
 export default function Hero() {
   return (
     <section className="relative z-10 mx-auto flex max-w-5xl flex-col items-start justify-between gap-6 px-6 pb-20 pt-12 md:flex-row md:px-10">
@@ -15,9 +17,10 @@ export default function Hero() {
           speakers — taught by Karyna.
         </p>
         <div className="flex items-center gap-4">
-          <button className="rounded-full bg-royal px-8 py-4 font-sans text-sm font-medium tracking-wide text-white">
-            Book a lesson
-          </button>
+            <ContactButton
+            message="Hi Karyna! I'd like to book an English lesson."
+            label="Book a lesson"
+            />
           <a
             href="#books"
             className="border-b border-[var(--border)] px-2 py-4 font-sans text-sm tracking-wide"

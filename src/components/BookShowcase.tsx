@@ -86,4 +86,4 @@ export default function BookShowcase() {
       </div>
     </section>
   );
-}
+}   
