@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Fraunces, Work_Sans } from "next/font/google";
 import "./globals.css";
 import ContactProvider from "@/components/contact/ContactProvider";
+import Cursor from "@/components/Cursor";
+
 
 // Fraunces — our editorial serif, used for headlines.
 // We load a few weights and enable italic (used in "confidence.").
@@ -37,7 +39,8 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${workSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full w-full flex flex-col">
+    <body className="min-h-full w-full flex flex-col">
+        <Cursor />
         <ContactProvider>{children}</ContactProvider>
       </body>
     </html>

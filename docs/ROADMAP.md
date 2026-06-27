@@ -2,6 +2,22 @@
 
 Phased plan. Each phase aims to produce something usable.
 
+
+## [0.2.0] — 2026-06-27
+
+### Added
+- Supabase backend: 5 tables (lessons, books, courses, purchases, profiles) with RLS.
+- Auth: Supabase SSR, proxy.ts session refresh, email/password login.
+- Protected /admin area with admin-role guard (defense-in-depth re-checks in actions).
+- Lessons CRUD: create, edit, delete from admin; changes revalidate the public site.
+- Site-wide custom cursor (moved to root layout).
+
+### Known issues
+- Lesson pricing: admin stores a single base_price, but the public site applies
+  age/length multipliers, so "60 min price" is a base that gets scaled. Needs a
+  unified pricing model (decide per-duration prices vs. admin-controlled multipliers).
+
+  
 ## Phase 1 — Launchable MVP (in progress)
 
 - [x] Landing page with all core sections
