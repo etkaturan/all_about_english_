@@ -1,6 +1,8 @@
 "use client";
 
 import { useRef } from "react";
+import ContactButton from "@/components/contact/ContactButton";
+import Section from "@/components/Section";
 
 export default function BookShowcase() {
   const innerRef = useRef<HTMLDivElement>(null);
@@ -20,70 +22,60 @@ export default function BookShowcase() {
   };
 
   return (
-    <section
-      id="books"
-      className="relative z-10 flex flex-wrap items-center justify-center gap-12 px-6 py-16 md:py-20"
-    >
-      <div
-        onMouseMove={onMove}
-        onMouseLeave={onLeave}
-        style={{ perspective: "1100px" }}
-      >
-        <div
-          ref={innerRef}
-          className="relative h-[212px] w-[148px] transition-transform duration-150 ease-out"
-          style={{
-            transformStyle: "preserve-3d",
-            transform: "rotateY(-28deg) rotateX(6deg)",
-          }}
-        >
-          <div
-            className="absolute inset-0 flex flex-col justify-between rounded-[4px_8px_8px_4px] border border-[var(--border)] p-4"
-            style={{
-              background: "var(--card)",
-              boxShadow: "0 22px 50px rgba(26,31,46,0.22)",
-            }}
-          >
-            <div className="font-sans text-[9px] tracking-[3px] text-royal">
-              KARYNA · 2026
-            </div>
-            <div>
-              <div className="font-serif text-[19px] italic leading-tight">
-                Fluent
-                <br />
-                English
+    <Section id="books">
+      <div className="grid items-center gap-12 md:grid-cols-2">
+        <div className="flex justify-center">
+          <div onMouseMove={onMove} onMouseLeave={onLeave} style={{ perspective: "1100px" }}>
+            <div
+              ref={innerRef}
+              className="relative h-[300px] w-[210px] transition-transform duration-150 ease-out"
+              style={{
+                transformStyle: "preserve-3d",
+                transform: "rotateY(-28deg) rotateX(6deg)",
+              }}
+            >
+              <div
+                className="absolute inset-0 flex flex-col justify-between rounded-[4px_10px_10px_4px] border border-[var(--border)] p-6"
+                style={{ background: "var(--card)", boxShadow: "0 30px 60px rgba(26,31,46,0.25)" }}
+              >
+                <div className="font-sans text-[10px] tracking-[3px] text-royal">KARYNA · 2026</div>
+                <div>
+                  <div className="font-serif text-2xl italic leading-tight">
+                    Fluent
+                    <br />
+                    English
+                  </div>
+                  <div className="mt-3 h-[2px] w-[32px] bg-royal" />
+                </div>
+                <div className="font-sans text-[9px] tracking-[2px] text-faint">THE COMPLETE GUIDE</div>
               </div>
-              <div className="mt-2 h-[2px] w-[26px] bg-royal" />
-            </div>
-            <div className="font-sans text-[8px] tracking-[2px] text-faint">
-              THE COMPLETE GUIDE
+              <div
+                className="absolute right-0 top-0 h-full w-[18px]"
+                style={{
+                  background: "color-mix(in srgb, var(--navy) 12%, var(--ivory))",
+                  transform: "translateX(17px) rotateY(90deg)",
+                  transformOrigin: "left",
+                }}
+              />
             </div>
           </div>
-          <div
-            className="absolute right-0 top-0 h-full w-[14px]"
-            style={{
-              background: "color-mix(in srgb, var(--navy) 12%, var(--ivory))",
-              transform: "translateX(13px) rotateY(90deg)",
-              transformOrigin: "left",
-            }}
+        </div>
+
+        <div className="text-center md:text-left">
+          <p className="mb-3 font-sans text-[12px] tracking-[3px] text-royal">THE BOOKSHELF</p>
+          <h2 className="mb-4 font-serif text-4xl font-medium leading-tight md:text-5xl">
+            Learn at your own pace
+          </h2>
+          <p className="mx-auto mb-7 max-w-md font-sans text-base leading-relaxed text-muted md:mx-0 md:text-lg">
+            Preview the first chapters in interactive 3D, then unlock the full
+            book. Move your cursor over the cover.
+          </p>
+          <ContactButton
+            message="Hi Karyna! I'd like to know more about your books."
+            label="Explore books"
           />
         </div>
       </div>
-
-      <div className="max-w-[270px] text-left">
-        <p className="mb-3 font-sans text-[12px] tracking-[3px] text-royal">
-          THE BOOKSHELF
-        </p>
-        <h2 className="mb-3 font-serif text-2xl font-medium leading-tight">
-          Learn at your own pace
-        </h2>
-        <p className="font-sans text-[15px] leading-relaxed text-muted">
-          Preview the first chapters in 3D, then unlock the full book.
-        </p>
-        <button className="mt-5 rounded-full bg-royal px-6 py-3 font-sans text-[13px] font-medium text-white">
-          Explore books
-        </button>
-      </div>
-    </section>
+    </Section>
   );
-}   
+}
